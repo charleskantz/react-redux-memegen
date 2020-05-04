@@ -3,10 +3,24 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+import rootReducer from './rootReducer';
 
+const store = createStore(rootReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__
+  && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+
+/** Provides redux store to full App.
+ *  Store:
+ *    - memes: array of meme objects
+ */
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
