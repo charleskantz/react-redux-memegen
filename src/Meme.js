@@ -14,15 +14,14 @@ function Meme({ topText, bottomText, url, removeMeme, id }) {
     backgroundImage: `url("${url}")`,
     backgroundSize: 'contain',
     width: "200px",
-    height: "200px",
-
+    height: "200px"
   }
 
   return (
     <div className="memeContainer" style={style}>
       <div className="topText" >{topText}</div>
       <div className="bottomText" >{bottomText}</div>
-      <p className="closeBtn" id={id} onClick={evt => removeMeme(evt)}> X </p>
+      <p className="closeBtn" onClick={()=> removeMeme(id)}> X </p>
     </div>
   )
 }

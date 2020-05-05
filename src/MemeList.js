@@ -12,8 +12,8 @@ function MemeList() {
   const memes = useSelector(st => st.memes);
   const dispatch = useDispatch();
 
-  const removeMeme = evt => {
-    const { id }= evt.target;
+  // NOTE: don't use evt.target for this
+  const removeMeme = id => {
     dispatch({
       type: "DELETE_MEME",
       payload: {
